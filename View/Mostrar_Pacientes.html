@@ -1,0 +1,99 @@
+
+<div layout="column" class="formulario" ng-init="mostrarPacientes()">
+    <md-toolbar class="md-theme-light">
+        <h2 class="md-toolbar-tools">
+            <span>Pacientes</span>
+        </h2>
+    </md-toolbar>
+    <md-toolbar class="footer">
+        <div class="md-toolbar-tools">
+            <md-button class="md-raised md-primary" style="width:18%" onclick="location.href='#/';">Volver al menú</md-button>
+            <span flex></span>
+            <form name="miCita">
+                <md-input-container style="width:50% !important;">
+                    <input required="" ng-model="search" name="search">
+                    <div class="errors" ng-messages="miCita.search.$error">
+                        <div ng-message="required">Ingrese elemento de busqueda</div>
+                    </div>
+                </md-input-container>
+                <md-button class="md-raised md-primary" style="width:44%" ng-click="miCita.$valid && buscarPaciente()"><img style="position: relative;top: 7px;left: -6px;" src="CSS/ic_search_white_24px.svg"> Buscar</md-button>
+            </form>
+        </div>
+    </md-toolbar>
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs="" flex-gt-xs="50" layout="column" style="max-width: 100% !important;">
+            <md-card ng-repeat="p in pacientes | startFrom:currentPage*pageSize | limitTo:pageSize" md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{p.paciente}}</span>
+                        <div layout="row">
+                            <span class="md-subhead"><b>Dueño</b> - {{p.dueno}}</span>
+                            <span class="md-subhead"><b>Teléfono</b> - {{p.telefono}}</span>
+                            <span class="md-subhead"><b>Raza</b> - {{p.raza}}</span>
+                            <span class="md-subhead"><b>Peso</b> - {{p.peso}}</span>
+                        </div>
+                        <div layout="row">
+                            <span class="md-subhead"><b>Edad</b> - {{p.edad}}</span>
+                            <span class="md-subhead"><b>Sexo</b> - {{p.sexo}}</span>
+                            <span class="md-subhead"><b>Alergías</b> - {{p.alergias}}</span>
+                        </div>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-xl card-media"></div>
+                    </md-card-title-media>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class="md-warn md-raised md-hue-2" ng-click="eliminarUnPaciente(p.id)">Eliminar</md-button>
+                    <md-button class="md-raised md-primary md-button md-ink-ripple" style="background-color:#1aa094" ng-click="redirect(p.id)">Editar </md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </md-content>
+    <div layout="row">
+        <div style="width:33%">
+            <md-button class="md-raised md-primary"  style="background-color: #4c9ef0;color:#fff" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+                Anterior
+            </md-button>
+        </div>
+        <div style="width:33%;text-align:center;font-weight: 400;font-size: 2.000rem;">
+            {{currentPage+1}}/{{numberOfPages()}}
+        </div>
+        <div style="width:33%">
+            <md-button class="md-raised md-primary"
+                       style="float:right;background-color: #4c9ef0;color:#fff" ng-disabled="currentPage >= pacientes.length/pageSize - 1"  ng-click="currentPage=currentPage+1">
+                Siguiente
+            </md-button>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    body{
+        overflow-y:initial !important;
+    }
+    button{
+        width:80%;
+    }
+    .carddemoBasicUsage .card-media {
+        height: 152px;
+        width: 152px;
+        background-image: url("../CSS/chart_icon.png") !important;
+    }
+    .md-subhead{
+        width:25%;
+        margin-bottom:1%;
+    }
+    b{
+        font-size:15px;
+    }
+    button:disabled{
+        background-color:#e8e8e8 !important;
+        color:#d4d4d4 !important;
+
+    }
+    .md-headline{
+        margin-bottom:2%;
+    }
+</style>

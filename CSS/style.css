@@ -1,0 +1,192 @@
+.header{
+    text-align: center;
+    font-size: 80px;
+    color: #7284a7;
+    max-height: 300px;
+    height: 140px;
+    padding: 30px 0px 0 0;
+}
+
+
+.layout-row > .flex-gt-xs-50{
+        max-width: 100% !important;
+}
+
+
+#imagen_Cita_1{
+    position: absolute;
+    left: 0;
+    top: 31%;
+}
+.autocomplete-custom-template .item-title,
+.autocomplete-custom-template .item-metadata {
+    display: block;
+    line-height: 2;
+}
+.autocomplete-custom-template .item-title md-icon {
+    height: 18px;
+    width: 18px;
+}
+.autocomplete-custom-template li {
+    border-bottom: 1px solid #ccc;
+    height: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    white-space: normal;
+}
+#imagen_Cita_2{
+    position: absolute;
+    right: 4%;
+    top: 45%;
+    max-width: 200px;
+}
+#imagen_Cita_2 img{
+    width:100%;
+}
+#imagen_paciente2{
+    position: absolute;
+    right: 0%;
+    top: 45%;
+    max-width: 381px;
+}
+#imagen_paciente2 img{
+    width:100%;
+}
+html,body{
+    padding:0px;
+    margin:0px;
+}
+.layout-row > .flex-50{
+    max-width:60% !important;
+    width:59%;
+}
+md-toolbar.footer{
+    background-color: #fafafa !important;
+}
+.container{
+    background-image:url('Dog.png') ;
+    background-size:100%;
+    background-repeat: no-repeat;
+    height:800px;
+    padding:10px;
+}
+label{
+    display:block;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+@media screen and (max-width: 1599px),screen and (max-height: 799px) {
+    .box_one{
+        background-color:#999999;
+        opacity: 0.6;
+        height: 235px;
+        width: 35%;
+        cursor: pointer;
+    }
+    .box_two{
+        background-color:#999999;
+        opacity: 0.6;
+        height: 235px;
+        width: 35%;
+        cursor: pointer;
+    }
+    .box_three{
+        background-color:#999999;
+        opacity: 0.6;
+        height: 235px;
+        width: 35%;
+        cursor: pointer;
+        position:relative;
+        bottom: 0%;
+    }
+    .box_four{
+        background-color:#999999;
+        opacity: 0.6;
+        height: 235px;
+        width: 35%;
+        cursor: pointer;
+        position:relative;
+        bottom: 0%;
+    }
+}
+@media screen and (min-width: 1600px),screen and (min-height: 800px) {
+    .box_one{
+        background-color:#999999;
+        opacity: 0.6;
+        height: 280px;
+        width: 35%;
+        cursor: pointer;
+    }
+    .box_two{
+        background-color:#999999;
+        opacity: 0.6;
+        height: 280px;
+        width: 35%;
+        cursor: pointer;
+    }
+    .box_three{
+        background-color:#999999;
+        opacity: 0.6;
+        height: 280px;
+        width: 35%;
+        cursor: pointer;
+        position:relative;
+        bottom: 0%;
+    }
+    .box_four{
+        background-color:#999999;
+        opacity: 0.6;
+        height: 280px;
+        width: 35%;
+        cursor: pointer;
+        position:relative;
+        bottom: 0%;
+    }
+}
+
+
+.box_subcontainer{
+    font-size: 3vh;
+    text-align: center;
+    /* padding-top: 20%; */
+    font-weight: 700;
+    position: relative;
+    top: -16%;
+    left: 8%;
+    cursor: pointer;
+    color: #fff;
+    width: 15%;
+}
+md-input-container{
+    margin-top:50px !important;
+    width: 20%;
+}
+md-autocomplete{
+    margin-top:2%;
+    width: 99.8%;
+}
+md-datepicker{
+    margin-top: 5.5%;
+}
+.formulario{
+    width: 60%;
+    margin-left: 19%;
+    padding-left: 5%;
+}
+.box_subcontainer_two{
+    font-size: 3vh;
+    text-align: center;
+    /* padding-top: 20%; */
+    font-weight: 700;
+    position: relative;
+    top: -21%;
+    left: 76%;
+    cursor: pointer;
+    color: #fff;
+    width: 10%;
+}
+input{
+    width: 250px;
+    height: 20px;
+}
+

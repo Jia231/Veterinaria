@@ -1,0 +1,143 @@
+<div layout="column" class="formulario" ng-controller="CitaCtrl">
+    <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions">
+        <div class="md-toolbar-tools" style="background-color: #ee7377">
+            <h3 class="ng-binding ng-isolate-scope"><a class="docs-anchor ng-scope">Registrar una cita</a></h3>
+        </div>
+    </md-toolbar>
+
+    <form name="miCita">
+        <md-toolbar class="footer">
+            <div class="md-toolbar-tools">
+                <md-button class="md-raised md-primary" onclick="location.href='#/';">Volver al menú</md-button>
+                <span flex></span>
+                <md-button class="md-raised md-warn" style="float:right" ng-click="miCita.$valid && Guardar()">Guardar cita</md-button>
+            </div>
+        </md-toolbar>
+
+        <md-autocomplete
+                ng-disabled="isDisabled"
+                md-no-cache="noCache"
+                md-selected-item="selectedItem"
+                md-search-text-change="searchTextChange()"
+                md-search-text="searchText"
+                md-selected-item-change="selectedItemChange(item)"
+                md-items="item in Person"
+                md-item-text="item.paciente"
+                md-min-length="0"
+                ng-model="searchText"
+                class="autocomplete-custom-template"
+                placeholder="Buscar paciente por nombre o dueño.">
+            <md-item-template style="height:70px">
+                <span style='display:block;line-height:2px;' class="item-title">
+            <md-icon md-svg-icon="CSS/ic_pets_black_24px.svg"></md-icon>
+            <span> {{item.paciente}} </span>
+          </span>
+                <span class="item-metadata">
+            <span>
+              Dueño <strong>{{item.dueno}}</strong>
+            </span>
+
+          </span>
+            </md-item-template>
+            <md-not-found>
+                "{{searchText}}" no existe en la lista de pacientes.
+            </md-not-found>
+        </md-autocomplete >
+
+        <div layout="row">
+            <md-input-container class="md-block">
+                <label>Raza</label>
+                <input disabled="" type="text" step="any" name="raza" ng-model="raza">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Peso</label>
+                <input disabled="" type="text" step="any" name="peso" ng-model="peso">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Edad</label>
+                <input disabled="" type="text" step="any" name="edad" ng-model="edad">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Sexo</label>
+                <input disabled="" type="text" step="any" name="sexo" ng-model="sexo">
+            </md-input-container>
+            <md-input-container flex="50">
+                <label>Parásito</label>
+                <md-select name="parasito" ng-model="parasito" required="">
+                    <md-option value="Si">Sí</md-option>
+                    <md-option value="No">No</md-option>
+                </md-select>
+                <div class="errors" ng-messages="miCita.parasito.$error">
+                    <div ng-message="required">Elija una opción</div>
+                </div>
+            </md-input-container>
+
+        </div>
+
+        <div layout="row">
+            <md-input-container class="md-block">
+                <label>Dueño</label>
+                <input disabled="" type="text" step="any" name="dueno" ng-model="dueno">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Teléfono</label>
+                <input disabled="" type="number" step="any" name="tel" ng-model="tel" ng-pattern="/^[0-9]{8}$/">
+            </md-input-container>
+            <md-datepicker ng-model="fecha" md-min-date="ctrl.minDate" md-placeholder="Fecha"></md-datepicker>
+            <md-input-container class="md-block">
+                <label>Hora</label>
+                <input required="" type="text" step="any" name="hora" ng-model="hora" >
+                <div class="errors" ng-messages="miCita.hora.$error">
+                    <div ng-message="required">Ingrese una hora</div>
+                </div>
+            </md-input-container>
+        </div>
+
+        <div layout="row">
+            <md-input-container class="md-block" style="width: 100%" >
+                <label>Alergías</label>
+                <textarea disabled="" required="" style="max-height: 135px;" md-maxlength="500" rows="2" md-select-on-focus="" ng-model="alergias"></textarea>
+            </md-input-container>
+        </div>
+
+        <div layout="row">
+            <md-input-container class="md-block" style="width:100%">
+                <label>Diagnóstico</label>
+                <textarea required="" style="max-height: 135px;" md-maxlength="500" rows="5" md-select-on-focus="" ng-model="diagnostico"></textarea>
+                <div ng-messages="miCita.diagnostico.$error" multiple="" md-auto-hide="false">
+                    <div ng-message="required">
+                        Ingrese un diagnóstico
+                    </div>
+                </div>
+            </md-input-container>
+
+        </div>
+        <div layout="row">
+            <md-input-container class="md-block" style="width:100%">
+                <label>Tratamiento</label>
+                <textarea style="max-height: 135px;" md-maxlength="500" rows="5" md-select-on-focus="" ng-model="tratamiento"></textarea>
+            </md-input-container>
+        </div>
+
+
+    </form>
+<div id="imagen_Cita_1">
+    <img src="CSS/Cita_1.png">
+</div>
+    <div id="imagen_Cita_2">
+        <img src="CSS/calendario.png">
+    </div>
+</div>
+
+<style>
+    body{
+        overflow-y:initial !important;
+    }
+    md-item-template .item-title{
+        display:block;
+        line-height:2px;
+    }
+   .md-autocomplete-suggestions li{
+        height:70px !important;
+    }
+</style>
